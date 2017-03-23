@@ -1,37 +1,52 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Companies</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Symbol</th>
-      <th>Name</th>
-      <th>Sector</th>
-      <th>Price</th>
-      <th>Dividendyield</th>
-      <th>Priceearnings</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
 
-  <tbody>
-    <% @companies.each do |company| %>
+
+
+
+
+
+<div class="container">
+  <div class="row col-md-8 col-md-offset-2 custyle">
+    <table class="table table-striped custab">
+      <thead>
+      <%= link_to new_company_path ,class: "btn btn-primary btn-xs pull-right" do%>
+        <b>+</b> Add new categories
+       <%end%>
+      <tr>
+        <th>Symbol</th>
+        <th>Name</th>
+        <th>Sector</th>
+        <th>Price</th>
+
+        <th class="text-center">Action</th>
+      </tr>
+      </thead>
+      <% @companies.each do |company| %>
       <tr>
         <td><%= company.symbol %></td>
-        <td><%= company.name %></td>
+        <td><%= link_to company.name, company %></td>
         <td><%= company.sector %></td>
         <td><%= company.price %></td>
-        <td><%= company.dividendYield %></td>
-        <td><%= company.priceEarnings %></td>
-        <td><%= link_to 'Show', company %></td>
-        <td><%= link_to 'Edit', edit_company_path(company) %></td>
-        <td><%= link_to 'Destroy', company, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+
+        <td class="text-center">
+          <%= link_to  edit_company_path(company) ,class: "btn btn-danger btn-xs" do %>
+              <span class="glyphicon glyphicon-edit"></span> Edit
+           <%end%>
+
+          <%= link_to   company, method: :delete, data: { confirm: 'Are you sure?' }  ,class: "btn btn-danger btn-xs" do %>
+            <span class="glyphicon glyphicon-remove"></span> Del
+          <%end%>
+        </td>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+      <%end%>
 
-<br>
+    </table>
+    <div class="pull-right">
 
-<%= link_to 'New Company', new_company_path %>
+      <%= will_paginate @companies %>
+    </div>
+  </div>
+
+</div>
