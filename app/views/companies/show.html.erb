@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Symbol:</strong>
+  <%= @company.symbol %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @company.name %>
+</p>
+
+<p>
+  <strong>Sector:</strong>
+  <%= @company.sector %>
+</p>
+
+<p>
+  <strong>Price:</strong>
+  <%= @company.price %>
+</p>
+
+<p>
+  <strong>Dividendyield:</strong>
+  <%= @company.dividendYield %>
+</p>
+
+<p>
+  <strong>Priceearnings:</strong>
+  <%= @company.priceEarnings %>
+</p>
+
+<%= link_to 'Edit', edit_company_path(@company) %> |
+<%= link_to 'Back', companies_path %>

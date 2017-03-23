@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  symbol: MyString
+  name: MyString
+  sector: MyString
+  price: 1.5
+  dividendYield: 1.5
+  priceEarnings: 1.5
+
+two:
+  symbol: MyString
+  name: MyString
+  sector: MyString
+  price: 1.5
+  dividendYield: 1.5
+  priceEarnings: 1.5
