@@ -22,6 +22,10 @@ gem 'coffee-rails', '~> 4.2'
 gem 'therubyracer', platforms: :ruby
 gem 'will_paginate', '~> 3.1.0'
 gem 'bootstrap-sass', '~> 3.3.6'
+gem 'simple_form'
+gem 'acts-as-taggable-on', '~> 4.0'
+gem 'highscore', '~> 1.2', '>= 1.2.1'
+gem 'faker'
 
 
 # Use jquery as the JavaScript library

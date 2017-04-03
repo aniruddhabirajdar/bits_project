@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  recommandation: MyString
+  report_text: MyText
+  target: 1.5
+
+two:
+  title: MyString
+  recommandation: MyString
+  report_text: MyText
+  target: 1.5
