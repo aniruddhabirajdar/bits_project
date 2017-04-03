@@ -26,7 +26,8 @@ gem 'simple_form'
 gem 'acts-as-taggable-on', '~> 4.0'
 gem 'highscore', '~> 1.2', '>= 1.2.1'
 gem 'faker'
-
+gem 'devise'
+gem "cancan"
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'

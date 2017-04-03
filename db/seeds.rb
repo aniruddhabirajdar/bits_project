@@ -6,6 +6,21 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+#destroy old roles and users
+
+User.destroy_all
+Role.destroy_all
+p "old data has been deleted"
+#Create Roles
+Role.create!([{name: "Admin",symbol_name:"admin"},{name: "investor",symbol_name:"investor"},{name: "analyst",symbol_name:"analyst"}])
+#Create Admin
+User.create!({:email => "admin@test.com", :roles => [Role.where(symbol_name:"admin").first], :password => "welcome123", :password_confirmation => "welcome123" })
+#Create Users
+(0...100).each do |number|
+  User.create!({:email => Faker::Internet.email, :roles => [Role.where.not(symbol_name:"admin").sample], :password => "welcome123", :password_confirmation => "welcome123" })
+end
+p "#{User.count} users has been created including admin"
+
   #Fetch data from Json
 require 'csv'
 Company.destroy_all
