@@ -28,6 +28,7 @@ gem 'highscore', '~> 1.2', '>= 1.2.1'
 gem 'faker'
 gem 'devise'
 gem "cancan"
+gem 'rails_admin'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'

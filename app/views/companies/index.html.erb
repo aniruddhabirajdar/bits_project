@@ -1,6 +1,5 @@
-<p id="notice"><%= notice %></p>
 <div class="container">
-  <div class="row col-md-8 col-md-offset-2 custyle">
+  <div class="row col-md-12 custyle">
     <table class="table table-striped custab">
       <thead>
       <%= link_to new_company_path ,class: "btn btn-primary btn-xs pull-right" do%>
@@ -11,8 +10,9 @@
         <th>Name</th>
         <th>Sector</th>
         <th>Price</th>
-
-        <th class="text-center">Action</th>
+        <% if can?(:update, @companies)  || can?(:destroy, @companies ) %>
+          <th class="text-center">Action</th>
+        <%end%>
       </tr>
       </thead>
       <% @companies.each do |company| %>
@@ -21,16 +21,22 @@
         <td><%= link_to company.name, company %></td>
         <td><%= company.sector %></td>
         <td><%= company.price %></td>
+        <% if can?(:update, @companies)  || can?(:destroy, @companies ) %>
+          <td class="text-center">
+            <% if can? :update, company %>
+              <%= link_to  edit_company_path(company) ,class: "btn btn-danger btn-xs" do %>
+                  <span class="glyphicon glyphicon-edit"></span> Edit
+               <%end%>
+            <%end%>
+            <% if can? :destroy, company %>
+              <%= link_to   company, method: :delete, data: { confirm: 'Are you sure?' }  ,class: "btn btn-danger btn-xs" do %>
+                <span class="glyphicon glyphicon-remove"></span> Del
+              <%end%>
+            <%end%>
 
-        <td class="text-center">
-          <%= link_to  edit_company_path(company) ,class: "btn btn-danger btn-xs" do %>
-              <span class="glyphicon glyphicon-edit"></span> Edit
-           <%end%>
 
-          <%= link_to   company, method: :delete, data: { confirm: 'Are you sure?' }  ,class: "btn btn-danger btn-xs" do %>
-            <span class="glyphicon glyphicon-remove"></span> Del
-          <%end%>
-        </td>
+          </td>
+        <%end%>
       </tr>
       <%end%>
 
