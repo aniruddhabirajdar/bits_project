@@ -1,47 +1,63 @@
-<%= form_for(company) do |f| %>
-  <% if company.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(company.errors.count, "error") %> prohibited this company from being saved:</h2>
+<%= simple_form_for company,html: { class: "form-horizontal"},defaults: { input_html: { class: 'form-control input-md' } } do |f| %>
+<form class="form-horizontal">
+  <fieldset>
 
-      <ul>
-      <% company.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+    <% if company.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(company.errors.count, "error") %> prohibited this company from being saved:</h2>
+
+          <ul>
+            <% company.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+    <% end %>
+
+    <!-- Text input-->
+    <div class="form-group">
+      <label class="col-md-4 control-label" for="textinput">Name</label>
+      <div class="col-md-4">
+        <%= f.input :name,label:false %>
+      </div>
     </div>
-  <% end %>
 
-  <div class="field">
-    <%= f.label :symbol %>
-    <%= f.text_field :symbol %>
-  </div>
 
-  <div class="field">
-    <%= f.label :name %>
-    <%= f.text_field :name %>
-  </div>
+    <div class="form-group">
+      <label class="col-md-4 control-label" for="textinput">Symbol</label>
+      <div class="col-md-4">
+        <%= f.input :symbol,label:false %>
+      </div>
+    </div>
 
-  <div class="field">
-    <%= f.label :sector %>
-    <%= f.text_field :sector %>
-  </div>
+    <div class="form-group">
+      <label class="col-md-4 control-label" for="textinput">Sector</label>
+      <div class="col-md-4">
+        <%= f.input :sector,label:false %>
+      </div>
+    </div>
 
-  <div class="field">
-    <%= f.label :price %>
-    <%= f.text_field :price %>
-  </div>
+    <div class="form-group">
+      <label class="col-md-4 control-label" for="textinput">Price</label>
+      <div class="col-md-4">
+        <%= f.input :price,label:false %>
+      </div>
+    </div>
 
-  <div class="field">
-    <%= f.label :dividendYield %>
-    <%= f.text_field :dividendYield %>
-  </div>
 
-  <div class="field">
-    <%= f.label :priceEarnings %>
-    <%= f.text_field :priceEarnings %>
-  </div>
 
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
+
+
+
+
+    <!-- Button (Double) -->
+    <div class="form-group">
+      <label class="col-md-4 control-label" for="textinput"></label>
+      <div class="col-md-8">
+        <%= f.button :submit, class:"btn btn-success" %>
+        <%=link_to "Cancle",root_path,class:"btn btn-default"%>
+      </div>
+    </div>
+
+  </fieldset>
+<%end%>

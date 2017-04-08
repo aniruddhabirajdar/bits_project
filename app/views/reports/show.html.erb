@@ -14,12 +14,12 @@
 
       <!-- First Blog Post -->
       <h2>
-        <%=@report.title%>
+        <%=link_to @report.title,@report.company%>
       </h2>
       <p class="lead">
         by <a href="index.php"><%=@report.user.email%></a>
       </p>
-      <p><span class="glyphicon glyphicon-time"></span> Posted on <%=@report.created_at%></p>
+      <p><span class="glyphicon glyphicon-time"></span> Posted on <%=@report.created_at.strftime("%e %b %y")%></p>
 
       <p><%= @report.report_text %></p>
 
@@ -41,7 +41,7 @@
           <div class="col-lg-12">
             <ul class="list-unstyled">
             <%@top_recommendations.each do |report|%>
-              <li><%= link_to truncate(report.display_name ,:length => 50),report%> (<%report.created_at.strftime("%b %y")%>)
+              <li><%= link_to truncate(report.display_name ,:length => 50),report%> <%report.created_at.strftime("%b %y")%>
               </li>
              <%end%>
             </ul>

@@ -1,5 +1,6 @@
 class ReportsController < ApplicationController
   before_action :set_report, only: [:show, :edit, :update, :destroy]
+  before_action :set_company, only: [:new]
 
   # GET /reports
   # GET /reports.json
@@ -26,6 +27,7 @@ class ReportsController < ApplicationController
   # POST /reports.json
   def create
     @report = Report.new(report_params)
+    @report.user=current_user
 
     respond_to do |format|
       if @report.save
@@ -55,9 +57,10 @@ class ReportsController < ApplicationController
   # DELETE /reports/1
   # DELETE /reports/1.json
   def destroy
+    company=@report.company
     @report.destroy
     respond_to do |format|
-      format.html { redirect_to reports_url, notice: 'Report was successfully destroyed.' }
+      format.html { redirect_to company, notice: 'Report was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
@@ -67,6 +70,10 @@ class ReportsController < ApplicationController
     def set_report
       @report = Report.find(params[:id])
     end
+
+  def set_company
+    @company=Company.find(params[:company_id]) rescue nil
+  end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def report_params

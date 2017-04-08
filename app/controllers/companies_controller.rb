@@ -1,6 +1,6 @@
 class CompaniesController < ApplicationController
   before_action :set_company, only: [:show, :edit, :update, :destroy]
-  load_and_authorize_resource
+  #load_and_authorize_resource
   # GET /companies
   # GET /companies.json
   def index
@@ -72,6 +72,6 @@ class CompaniesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def company_params
-      params.require(:company).permit(:symbol, :name, :sector, :price, :dividendYield, :priceEarnings)
+      params.require(:company).permit(:symbol, :name, :sector, :price)
     end
 end
