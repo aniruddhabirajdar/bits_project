@@ -10,6 +10,9 @@ class CompaniesController < ApplicationController
   # GET /companies/1
   # GET /companies/1.json
   def show
+    @reports=@company.reports.order('created_at DESC').limit(40)
+
+    @get_yahoo_data=@company.get_yahoo_data
   end
 
   # GET /companies/new

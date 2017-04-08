@@ -29,6 +29,7 @@ gem 'faker'
 gem 'devise'
 gem "cancan"
 gem 'rails_admin'
+gem "stock_quote"
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'

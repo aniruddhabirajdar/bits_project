@@ -50,9 +50,9 @@ end
 p "--------------------------------------------------------------------------"
 Report.destroy_all
 p "Genrate reports"
-(0...100).each do |number|
-  report=Report.create!(title: Faker::Lorem.sentences(1).first,recommandation:["BUY","SELL"].sample,report_text: Faker::Lorem.paragraph(500),target:Faker::Number.decimal(2, 3),company_id: Company.all.map(& :id).sample)
-  p "#{number}. #{report.recommandation} #{report.company.name} at #{report.target}"
+(0...1000).each do |number|
+  report=Report.create!(title: Faker::Lorem.sentences(1).first,recommandation:["BUY","SELL"].sample,report_text: Faker::Lorem.paragraph(500),target:Faker::Number.decimal(2, 3),company_id: Company.all.map(& :id).sample,user_id: User.analystes.sample.id)
+  p "#{number}. #{report.recommandation} #{report.company.name} at #{report.target} by #{report.user.email}"
 end
 p "report has been genrated"
 

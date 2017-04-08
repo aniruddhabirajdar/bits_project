@@ -10,6 +10,7 @@ class ReportsController < ApplicationController
   # GET /reports/1
   # GET /reports/1.json
   def show
+    @top_recommendations=@report.recommend_reports.first(10)
   end
 
   # GET /reports/new

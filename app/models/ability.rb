@@ -9,7 +9,8 @@ class Ability
       elsif user.role? :investor
         can :read, :all
       elsif user.role? :analyst
-        can :read, :all
+        #can :read, :all
+        can :manage, :all
       end
     end
 

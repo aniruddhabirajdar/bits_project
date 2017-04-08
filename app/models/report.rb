@@ -1,7 +1,7 @@
 class Report < ApplicationRecord
   belongs_to :company
   acts_as_taggable
-
+  belongs_to :user
 
   before_save :add_keywords
 
@@ -22,6 +22,10 @@ class Report < ApplicationRecord
 
   def recommend_reports
     ReportRecommender.new(self,self.get_related_reports_by_sector).recommendations
+  end
+
+  def display_name
+    "#{self.recommandation} #{self.company.name} at #{self.target}"
   end
 
 end
