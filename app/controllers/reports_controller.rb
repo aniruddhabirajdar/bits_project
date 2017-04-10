@@ -1,6 +1,7 @@
 class ReportsController < ApplicationController
   before_action :set_report, only: [:show, :edit, :update, :destroy]
   before_action :set_company, only: [:new]
+  load_and_authorize_resource
 
   # GET /reports
   # GET /reports.json

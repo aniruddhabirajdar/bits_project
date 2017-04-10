@@ -49,14 +49,14 @@
     <table class="table table-striped custab">
       <thead>
       <%= link_to new_report_path(company_id: @company) ,class: "btn btn-primary btn-xs pull-right" do%>
-          <b>+</b> Add new categories
+          <b>+</b> Report
       <%end%>
       <tr>
         <th>Title</th>
         <th>Analyst Name</th>
         <th>Created at</th>
         <th>Recommendation</th>
-        <% if can?(:update, @reports)  || can?(:destroy, @reports ) %>
+        <% if !(current_user.role? :investor) %>
             <th class="text-center">Action</th>
         <%end%>
       </tr>
@@ -67,7 +67,7 @@
             <td><%=  report.user.email%></td>
             <td><%=l report.created_at.to_date %></td>
             <td><%=report.recommandation%></td>
-            <% if can?(:update, @reports)  || can?(:destroy, @reports ) %>
+            <% if !(current_user.role? :investor) %>
                 <td class="text-center">
                   <% if can? :update, report %>
                       <%= link_to  edit_report_path(report) ,class: "btn btn-danger btn-xs" do %>
