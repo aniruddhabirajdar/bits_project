@@ -191,6 +191,8 @@ GEM
     stock_quote (1.2.3)
       json
       rest-client (~> 1.6)
+    tf-idf-similarity (0.1.6)
+      unicode_utils (~> 1.4)
     therubyracer (0.12.3)
       libv8 (~> 3.16.14.15)
       ref
@@ -204,6 +206,7 @@ GEM
       thread_safe (~> 0.1)
     uglifier (3.1.9)
       execjs (>= 0.3.0, < 3)
+    unicode_utils (1.4.0)
     warden (1.2.7)
       rack (>= 1.0)
     web-console (3.4.0)
@@ -241,6 +244,7 @@ DEPENDENCIES
   spring-watcher-listen (~> 2.0.0)
   sqlite3
   stock_quote
+  tf-idf-similarity (~> 0.1.5)
   therubyracer
   turbolinks (~> 5)
   tzinfo-data

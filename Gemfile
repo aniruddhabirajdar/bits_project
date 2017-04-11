@@ -30,6 +30,7 @@ gem 'devise'
 gem "cancan"
 gem 'rails_admin'
 gem "stock_quote"
+gem 'tf-idf-similarity', '~> 0.1.5'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'

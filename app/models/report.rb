@@ -13,7 +13,8 @@ class Report < ApplicationRecord
     tags=text.keywords.top(50).map(& :text)
     tags.push(self.company.sector)
     tags.push(self.recommandation)
-    self.tag_list.add(tags.flatten)
+    tokens = tags.to_a - ['and', 'the', 'to']
+    self.tag_list.add(tokens.flatten)
   end
 
   def get_related_reports_by_sector
@@ -27,5 +28,8 @@ class Report < ApplicationRecord
   def display_name
     "#{self.recommandation} #{self.company.name} at #{self.target}"
   end
+
+
+
 
 end
